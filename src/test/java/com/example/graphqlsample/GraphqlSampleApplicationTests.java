@@ -1,13 +1,12 @@
-package com.example.graphqlgrpcsample;
+package com.example.graphqlsample;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GraphqlGrpcSampleApplicationTests {
+class GraphqlSampleApplicationTests {
 
     @Test
     void contextLoads() {
     }
-
 }

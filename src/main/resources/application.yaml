@@ -1,6 +1,6 @@
 spring:
   application:
-    name: graphql-grpc-sample
+    name: graphql-sample
 
   datasource:
     url: jdbc:postgresql://localhost:5433/demo
