@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Table(name = "posts")
 public class Post {
 
     @Id
@@ -26,7 +28,15 @@ public class Post {
     private Long userId;
 
     public void update(String title, String content) {
-        this.title = title;
-        this.content = content;
+        if (title != null && !title.isBlank()) {
+            this.title = title;
+        }
+        if (content != null && !content.isBlank()) {
+            this.content = content;
+        }
+    }
+
+    public static Post create(String title, String content, Long userId) {
+        return new Post(null, title, content, userId);
     }
 }

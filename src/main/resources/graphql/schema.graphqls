@@ -1,0 +1,52 @@
+type Query {
+  users: [UserResponse!]!
+  user(id: ID!): UserResponse
+  posts: [PostResponse!]!
+  post(id: ID!): PostResponse
+}
+
+type Mutation {
+  createUser(input: CreateUserRequest!): UserResponse!
+  updateUser(input: UpdateUserRequest!): UserResponse!
+  deleteUser(id: ID!): Boolean!
+
+  createPost(input: CreatePostRequest!): PostResponse!
+  updatePost(input: UpdatePostRequest!): PostResponse!
+  deletePost(id: ID!): Boolean!
+}
+
+type UserResponse {
+  id: ID!
+  name: String!
+  profileImageId: ID
+}
+
+type PostResponse {
+  id: ID!
+  title: String!
+  content: String!
+  userId: ID!
+}
+
+input CreateUserRequest {
+  name: String!
+  profileImageId: ID
+}
+
+input UpdateUserRequest {
+  id: ID!
+  name: String!
+  profileImageId: ID
+}
+
+input CreatePostRequest {
+  title: String!
+  content: String!
+  userId: ID!
+}
+
+input UpdatePostRequest {
+  id: ID!
+  title: String!
+  content: String!
+}
