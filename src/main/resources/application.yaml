@@ -19,3 +19,8 @@ spring:
   graphql:
     graphiql:
       enabled: true
+
+  grpc:
+    client:
+      default-channel:
+        address: static://localhost:9090

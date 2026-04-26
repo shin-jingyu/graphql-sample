@@ -1,6 +1,5 @@
 package com.example.graphqlsample.user.graphql.resolver;
 
-import com.example.graphqlsample.user.domain.entity.User;
 import com.example.graphqlsample.user.graphql.dto.UserQueryDto.Response;
 import com.example.graphqlsample.user.graphql.mapper.UserGraphqlMapper;
 import com.example.graphqlsample.user.service.UserQueryService;
@@ -28,7 +27,6 @@ public class UserQueryResolver {
 
     @QueryMapping
     public Response user(@Argument Long id) {
-        User user = userQueryService.getUser(id);
-        return userGraphqlMapper.toResponse(user);
+        return userGraphqlMapper.toResponse(userQueryService.getUser(id));
     }
 }

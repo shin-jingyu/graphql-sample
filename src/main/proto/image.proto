@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package image.v1;
+
+option java_multiple_files = true;
+option java_package = "com.example.graphqlsample.image.proto";
+option java_outer_classname = "ImageProto";
+
+service ImageService {
+  rpc CreateImageUpload (CreateImageUploadRequest) returns (CreateImageUploadResponse);
+  rpc GetImageMetadata (GetImageMetadataRequest) returns (GetImageMetadataResponse);
+  rpc DeleteImage (DeleteImageRequest) returns (DeleteImageResponse);
+}
+
+message CreateImageUploadRequest {
+  string original_file_name = 1;
+  string content_type = 2;
+}
+
+message CreateImageUploadResponse {
+  string image_id = 1;
+  string upload_url = 2;
+}
+
+message GetImageMetadataRequest {
+  string image_id = 1;
+}
+
+message GetImageMetadataResponse {
+  string image_id = 1;
+  string original_file_name = 2;
+  string content_type = 3;
+  int64 size = 4;
+  string download_url = 5;
+}
+
+message DeleteImageRequest {
+  string image_id = 1;
+}
+
+message DeleteImageResponse {
+  string image_id = 1;
+  bool deleted = 2;
+}

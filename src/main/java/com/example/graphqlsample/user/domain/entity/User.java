@@ -23,9 +23,9 @@ public class User {
 
     private String name;
 
-    private Long profileImageId;
+    private String profileImageId;
 
-    public void update(String name, Long profileImageId) {
+    public void update(String name, String profileImageId) {
         if (name != null && !name.isBlank()) {
             this.name = name;
         }
@@ -34,7 +34,7 @@ public class User {
         }
     }
 
-    public static User create(String name, Long profileImageId) {
+    public static User create(String name, String profileImageId) {
         return new User(null, name, profileImageId);
     }
 }

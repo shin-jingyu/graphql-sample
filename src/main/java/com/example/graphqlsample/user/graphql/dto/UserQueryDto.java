@@ -8,7 +8,7 @@ public final class UserQueryDto {
     public record Response(
             Long id,
             String name,
-            Long profileImageId
+            String profileImageId
     ) {
     }
 }
