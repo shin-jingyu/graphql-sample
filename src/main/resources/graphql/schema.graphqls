@@ -11,9 +11,6 @@ type Mutation {
   updateUser(input: UpdateUserRequest!): UserResponse!
   deleteUser(id: ID!): Boolean!
 
-  createImageUpload(input: CreateImageUploadInput!): CreateImageUploadResponse!
-  deleteImage(imageId: ID!): Boolean!
-
   createPost(input: CreatePostRequest!): PostResponse!
   updatePost(input: UpdatePostRequest!): PostResponse!
   deletePost(id: ID!): Boolean!
@@ -33,11 +30,6 @@ type ImageMetadata {
   downloadUrl: String!
 }
 
-type CreateImageUploadResponse {
-  imageId: ID!
-  uploadUrl: String!
-}
-
 type PostResponse {
   id: ID!
   title: String!
@@ -54,11 +46,6 @@ input UpdateUserRequest {
   id: ID!
   name: String!
   profileImageId: ID
-}
-
-input CreateImageUploadInput {
-  originalFileName: String!
-  contentType: String!
 }
 
 input CreatePostRequest {
